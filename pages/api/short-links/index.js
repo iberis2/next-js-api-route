@@ -5,7 +5,7 @@ import createShortURL from '@/lib/createShortURL'
 export default async function handler(req, res) {
   await dbConnect()
 
-  switch (req.method) {
+  switch (req.method.toUpperCase()) {
     case 'POST':
       const { title, url } = req.body
       const shortUrl = createShortURL(url)

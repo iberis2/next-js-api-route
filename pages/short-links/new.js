@@ -8,8 +8,8 @@ export default function ShortLinkCreatePage() {
   const router = useRouter()
 
   const handleSubmit = async values => {
-    await axios.post('/short-links/', values)
-    router.push('/short-links/')
+    await axios.post('/short-links', values)
+    router.push('/short-links')
   }
 
   return (
