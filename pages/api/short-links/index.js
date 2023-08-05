@@ -7,7 +7,6 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'POST':
-    case 'PATCH':
       const { title, url } = req.body
       const shortUrl = createShortURL(url)
       const shortLink = await ShortLink.create({ title, url, shortUrl })

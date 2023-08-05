@@ -12,7 +12,6 @@ export default async function handler(req, res) {
       break
 
     case 'PATCH':
-    case 'POST':
       const updatedShortLink = await ShortLink.findByIdAndUpdate(id, req.body, { new: true })
       res.send(updatedShortLink)
       break
