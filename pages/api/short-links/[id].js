@@ -5,13 +5,14 @@ export default async function handler(req, res) {
   await dbConnect()
   const { id } = req.query
 
-  switch (req.method.toUpperCase()) {
+  switch (req.method) {
     case 'GET':
       const shortLink = await ShortLink.findById(id)
       res.send(shortLink)
       break
 
     case 'PATCH':
+    case 'POST':
       const updatedShortLink = await ShortLink.findByIdAndUpdate(id, req.body, { new: true })
       res.send(updatedShortLink)
       break
